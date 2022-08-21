@@ -1,0 +1,61 @@
+CODEPEN
+
+
+HTML
+
+<div class="js-container"></div>
+
+
+
+
+
+JS
+
+var node = document.querySelector('.js-container');
+var text = [];
+
+axios.get('https://api.coinpaprika.com/v1/coins')
+    .then( response => {
+        const coins = response.data;
+        for (let i = 0; i < 5; ++i ) {
+            const coin = coins[i];
+            text.push(`<li>${coin.name}: ${coin.symbol}</li>`)
+        }
+        node.innerHTML = `<ol>${text.join('')}</ol>`;
+    } );
+
+
+
+
+
+----------------------
+
+
+
+
+var node = document.querySelector('.js-container');
+var text = [];
+
+axios.get('https://api.coinpaprika.com/v1/coins')
+    .then( response => {
+        const coins = response.data;
+        for (let i = 0; i < 20; ++i ) {
+            const coin = coins[i];
+            text.push(
+              `<tr>
+                <td>${coin.rank}</td>
+                <td>${coin.name}</td>
+                <td>${coin.symbol}</td>
+               <tr>
+              `)
+        }
+        node.innerHTML = `      
+          <table>
+              <th>Rank</th>
+              <th>Asset</th>
+              <th>Ticker</th>
+            </tr>
+              ${text.join('')}
+          </table>
+        `;
+    } );

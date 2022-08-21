@@ -1,0 +1,9 @@
+.AccountBalance {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: .1rem;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    font-weight: bold;
+    background-color: rgb(12, 12, 167);
+}
