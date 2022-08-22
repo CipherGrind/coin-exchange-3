@@ -1,4 +1,0 @@
-[1, 2, 3, 4, 5].map(x => x ** 2 )
-(5) [1, 4, 9, 16, 25]
-[1, 2, 3, 4, 5].map(x => `<Coin>${x}</Coin>` )
-(5) ['<Coin>1</Coin>', '<Coin>2</Coin>', '<Coin>3</Coin>', '<Coin>4</Coin>', '<Coin>5</Coin>']

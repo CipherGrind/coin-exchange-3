@@ -1,21 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import './AccountBalance.css';
+import './AccountBalance.css'; 
+import img from './person-circle.svg';
 
 export default function AccountBalance (props) {
-        const buttonText = props.showBalance ? 'Hide Balance' : 'Show Balance';
+        const buttonText = props.showBalance ? 'HIDE BALANCE' : 'SHOW BALANCE';
+        const addToBalanceText = 'ADD FUNDS';
         let balanceToggle = null;
         if (props.showBalance) {
-            balanceToggle = <>Account Balance: ${props.amount}</>;
+            balanceToggle = <>BALANCE: ${(props.amount).toLocaleString(undefined, { maximumFractionDigits: 2 })}</>;
         }
+
+        const handleAddToBalanceClick = (event) => {
+            event.preventDefault();
+            props.handleAddToBalance();
+        }
+
         return (
             <section className="AccountBalance"> 
-                    <button className="BalanceButton" 
+
+                    <img src={img} alt="User Account" className="User-Logo" title="User Account"/>  
+
+                    <span className="BalanceColor">{balanceToggle}</span>  
+
+                    <button className="BalanceButton" alt="Hide Balance" title="Hide Balance" 
                         onClick={props.handleChangeBalance}> 
                         {buttonText} 
                     </button>
-                    {balanceToggle}
                     
+                    <button className="AddToBalanceButton" alt="Add Funds to Balance" title="Add Funds to Balance" 
+                        onClick={handleAddToBalanceClick}> 
+                        {addToBalanceText} 
+                    </button>
+
+                    
+
             </section>
         );
 }
